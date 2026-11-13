@@ -95,16 +95,6 @@
     return text;
   }
 
-  document.addEventListener('tikit:lang', function () {
-    var summary = document.getElementById('formErrorSummary');
-    if (!summary) return;
-    var items = summary.querySelectorAll('li a');
-    if (items.length) {
-      var heading = summary.querySelector('h2');
-      if (heading) heading.textContent = items.length + ' ' + tr(items.length === 1 ? 'field needs attention' : 'fields need attention');
-    }
-  });
-
   function taka(n) { return '\u09F3' + Number(n || 0).toLocaleString('en-US'); }
   function plural(n) { return n === 1 ? 'seat' : 'seats'; }
 
@@ -120,6 +110,9 @@
   function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
   function depWindow(mins) { return mins < 720 ? 'morning' : mins < 1080 ? 'afternoon' : 'evening'; }
   function dateInfo(key) { return DATES[key] || DATES['2026-11-12']; }
+  function routeLine(data) {
+    return tr(data.clsLabel) + ', ' + tr(data.date) + ', ' + tr('Kamalapur to') + ' ' + tr(STATIONS[data.route.to]);
+  }
   function lower(str) { return String(str || '').toLowerCase(); }
 
   var toastEl = null;
@@ -378,15 +371,15 @@
         emptyRoute.hidden = false;
         var title = $('#emptyRouteTitle');
         var text = $('#emptyRouteText');
-        if (title) title.textContent = 'No sample board for ' + (STATIONS[from] || from) + ' to ' + (STATIONS[to] || to);
-        if (text) text.textContent = 'This concept is wired for four corridors: Dhaka to Chattogram, Sylhet, Rajshahi and Cox’s Bazar. Load the coastal board to explore the full flow.';
+        if (title) title.textContent = tr('No sample board for') + ' ' + tr(STATIONS[from] || from) + ' → ' + tr(STATIONS[to] || to);
+        if (text) text.textContent = tr('This concept is wired for four corridors: Dhaka to Chattogram, Sylhet, Rajshahi and Cox’s Bazar. Load the coastal board to explore the full flow.');
       }
       var emptyTitle = $('#routeTitle');
       if (emptyTitle) emptyTitle.textContent = (STATIONS[from] || from) + ' \u2192 ' + (STATIONS[to] || to);
       var emptyBengali = $('#routeBengali');
       if (emptyBengali) emptyBengali.textContent = '';
       var emptyCount = $('#resultCount');
-      if (emptyCount) emptyCount.textContent = '0 services';
+      if (emptyCount) emptyCount.textContent = '0 ' + tr('services');
       var routeDate = $('#resultDate');
       if (routeDate) routeDate.textContent = dateInfo(dateKey).long;
       return;
@@ -401,9 +394,9 @@
     var resultPax = $('#resultPax');
     if (routeTitle) routeTitle.textContent = route.title;
     if (routeBengali) routeBengali.textContent = route.bengali;
-    if (routeNote) routeNote.textContent = 'Kamalapur to ' + STATIONS[route.to];
+    if (routeNote) routeNote.textContent = tr('Kamalapur to') + ' ' + tr(STATIONS[route.to]);
     if (resultDate) resultDate.textContent = dateInfo(dateKey).long;
-    if (resultPax) resultPax.textContent = pax + ' ' + (pax === 1 ? 'passenger' : 'passengers');
+    if (resultPax) resultPax.textContent = pax + ' ' + tr(pax === 1 ? 'passenger' : 'passengers');
 
     var depParam = q.get('dep') || 'all';
     if (['morning', 'afternoon', 'evening'].indexOf(depParam) === -1) depParam = 'all';
@@ -489,12 +482,12 @@
       var count = $('#visibleCount');
       var countTop = $('#resultCount');
       var status = $('#resultsStatus');
-      if (count) count.textContent = shown + ' of ' + rows.length + ' trains';
-      if (countTop) countTop.textContent = shown + (shown === 1 ? ' service' : ' services');
+      if (count) count.textContent = shown + ' / ' + rows.length + ' ' + tr('trains');
+      if (countTop) countTop.textContent = shown + ' ' + tr(shown === 1 ? 'service' : 'services');
       if (emptyFilters) emptyFilters.hidden = shown !== 0;
       list.hidden = shown === 0;
       syncUrl();
-      if (status) announce(status, shown + ' trains shown.');
+      if (status) announce(status, shown + ' ' + tr('trains') + ' ' + tr('shown'));
     }
 
     apply();
@@ -506,7 +499,7 @@
         var title = $('#waitlistTitle');
         var meta = $('#waitlistMeta');
         if (title) title.textContent = btn.dataset.waitlistTrain + ', ' + btn.dataset.waitlistNo;
-        if (meta) meta.textContent = 'Shovan or Snigdha, ' + dateInfo(dateKey).short;
+        if (meta) meta.textContent = tr('Shovan or Snigdha') + ', ' + tr(dateInfo(dateKey).short);
         var formWrap = $('#waitlistForm');
         var done = $('#waitlistDone');
         if (formWrap) formWrap.hidden = false;
@@ -606,9 +599,9 @@
     if (!seatMap) return;
 
     $('#bookingTrain').textContent = data.train.name + ', ' + data.trainNo;
-    $('#bookingMeta').textContent = data.clsLabel + ', ' + data.date + ', Kamalapur to ' + STATIONS[data.route.to];
+    $('#bookingMeta').textContent = routeLine(data);
     $('#sumTrain').textContent = data.train.name;
-    $('#sumMeta').textContent = data.clsLabel + ', ' + data.date + ', Kamalapur to ' + STATIONS[data.route.to];
+    $('#sumMeta').textContent = routeLine(data);
     function renderCoachChrome() {
       var coach = $('#coachBadge');
       if (coach) coach.textContent = coachCode();
@@ -1046,13 +1039,6 @@
     renderCoachChrome();
     resetHold();
 
-    document.addEventListener('tikit:lang', function () {
-      buildSeats();
-      renderSeats();
-      renderSummary();
-      renderCoachChrome();
-      syncStep(!detailsForm.hidden);
-    });
   }
 
   function initPayment() {
@@ -1064,7 +1050,7 @@
     var pnr = 'TJ' + Math.random().toString(36).slice(2, 8).toUpperCase();
     function setText(selector, text) { var el = $(selector); if (el) el.textContent = text; }
     setText('#payTrain', data.train.name + ', ' + data.trainNo);
-    setText('#payMeta', data.clsLabel + ', ' + data.date + ', Kamalapur to ' + STATIONS[data.route.to]);
+    setText('#payMeta', routeLine(data));
     setText('#paySeats', data.seats.map(function (n) { return seatLabel(Number(n)); }).join(', '));
     setText('#payFare', taka(data.fare) + ' × ' + data.seats.length);
     setText('#payTotal', taka(total));
@@ -1173,7 +1159,7 @@
     var total = data.fare * data.seats.length;
 
     $('#ticketTrain').textContent = data.train.name + ', ' + data.trainNo;
-    $('#ticketRoute').textContent = 'Kamalapur → ' + STATIONS[data.route.to];
+    $('#ticketRoute').textContent = tr('Kamalapur') + ' → ' + tr(STATIONS[data.route.to]);
     $('#ticketDep').textContent = data.train.dep;
     $('#ticketArr').textContent = data.train.arr;
     $('#ticketDuration').textContent = data.train.duration;
@@ -1197,7 +1183,7 @@
     function paintConfirmationMeta() {
       var el = $('#confirmationMeta');
       if (!el) return;
-      el.textContent = data.date + ', ' + data.clsLabel + ', ' + (isBangla()
+      el.textContent = tr(data.date) + ', ' + tr(data.clsLabel) + ', ' + (isBangla()
         ? banglaDigits(data.seats.length) + ' \u0986\u09B8\u09A8'
         : data.seats.length + ' ' + plural(data.seats.length));
     }
@@ -1215,12 +1201,6 @@
       }).join('');
     }
     paintPassengers();
-
-    document.addEventListener('tikit:lang', function () {
-      paintTicketSeats();
-      paintPassengers();
-      paintConfirmationMeta();
-    });
 
     var qr = $('#qrCode');
     if (qr) {
@@ -1330,7 +1310,7 @@
         if (!ok) return;
         var btn = $('#loginSubmit');
         btn.disabled = true;
-        btn.textContent = 'Signing in';
+        btn.textContent = tr('Signing in');
         window.setTimeout(function () { go('dashboard.html'); }, 700);
       });
     }
@@ -1348,7 +1328,7 @@
         mobile.removeAttribute('aria-invalid');
         $('#otpStep').hidden = false;
         $('#otpHint').hidden = false;
-        sendOtp.textContent = 'Code sent';
+        sendOtp.textContent = tr('Code sent');
         var first = $('#otp1');
         if (first) first.focus();
       });
@@ -1496,8 +1476,8 @@
     if (resend) {
       resend.addEventListener('click', function () {
         toast('A new code is on its way.');
-        resend.textContent = 'Sent';
-        window.setTimeout(function () { resend.textContent = 'Resend code'; }, 20000);
+        resend.textContent = tr('Sent');
+        window.setTimeout(function () { resend.textContent = tr('Resend code'); }, 20000);
       });
     }
 
@@ -1552,7 +1532,7 @@
     $$('[data-dash-refresh]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var stamp = $('#liveStatusTime');
-        if (stamp) stamp.textContent = 'Updated just now';
+        if (stamp) stamp.textContent = tr('Updated just now');
         toast('Live status refreshed.');
       });
     });
@@ -1617,7 +1597,7 @@
         $('#statusName').textContent = train.name + ', ' + train.no;
         $('#statusRoute').textContent = train.route.title;
         $('#statusTime').textContent = train.dep + ' → ' + train.arr;
-        $('#statusPlatform').textContent = 'Platform ' + (no === '786' ? '4' : no === '704' ? '2' : '6');
+        $('#statusPlatform').textContent = tr('Platform') + ' ' + (no === '786' ? '4' : no === '704' ? '2' : '6');
         var late = no === '704';
         var chip = $('#statusChip');
         chip.textContent = late ? '10 min late' : 'On time';
