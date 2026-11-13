@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payment, tikit</title>
+<meta name="description" content="Pay for your intercity train seats with bKash, Nagad, card or bank transfer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Bengali:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+</head>
+<body data-page="payment">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header on-forest">
+  <div class="page-wrap header-inner">
+    <a href="index.html" class="brand" aria-label="tikit home">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+      <span class="brand-text"><span class="brand-name">tikit</span><span class="brand-sub">আন্তঃনগর</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="trains.html" aria-current="page">Book</a>
+      <a class="nav-link" href="dashboard.html">My trips</a>
+      <a class="nav-link" href="help.html">Help</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button type="button" class="lang-btn" data-lang-toggle aria-label="Switch to English" title="Switch to English">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+        <span data-lang-label>English</span>
+      </button>
+      <a href="tel:13107" class="header-phone"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h3l1.5 4-2 1.5a12 12 0 0 0 7 7L16 14.5l4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4Z" stroke-linecap="round" stroke-linejoin="round"/></svg>13107</a>
+      <a href="login.html" class="header-signin">Sign in</a>
+      <a href="register.html" class="btn-bright btn-sm hidden sm:inline-flex">Create account</a>
+      <button id="menuBtn" type="button" class="menu-btn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg class="menu-icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        <svg class="close-icon hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="trains.html" aria-current="page">Book a seat</a>
+      <a href="dashboard.html">My trips</a>
+      <a href="help.html">Help and refunds</a>
+    </nav>
+    <div class="menu-sep"></div>
+    <a href="login.html">Sign in</a>
+    <a href="register.html">Create an account</a>
+    <p class="mt-3 px-3 text-xs text-paper/65">Helpline <a class="ml-1 inline font-mono text-paper/80" href="tel:13107">13107</a></p>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero on-forest">
+    <div class="page-wrap page-hero__inner">
+      <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="eyebrow">Payment, step 3 of 4</p>
+          <h1 class="mt-3 max-w-[16ch] font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.035em]">Pay for the journey.</h1>
+          <p class="mt-3 max-w-[48ch] text-[15px] leading-relaxed text-paper/70">Choose a wallet, card or bank transfer. This is a design prototype: no money moves.</p>
+        </div>
+        <div class="flex items-center gap-2 rounded-full border border-paper/25 px-4 py-2.5 text-xs text-paper/80">
+          <svg class="h-4 w-4 text-leaf-bright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke-linecap="round"/></svg>
+          Encrypted, card details never stored
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="checkout-bar bg-paper">
+    <div class="page-wrap flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">
+      <div class="flex items-center gap-3">
+        <a href="booking.html" class="inline-flex h-9 w-9 flex-none items-center justify-center rounded-full border border-edge text-ink transition hover:border-leaf hover:text-leaf" aria-label="Back to seat selection">
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 10H5M9 5l-5 5 5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div>
+          <p class="text-sm font-medium">Payment, step 3 of 4</p>
+          <p class="mt-0.5 text-xs text-muted">Your seats are held while you pay.</p>
+        </div>
+      </div>
+      <div class="stepper" role="list" aria-label="Checkout progress">
+        <div role="listitem" class="stepper-item is-done"><span class="stepper-dot">1</span><span class="stepper-label">Seats</span></div>
+        <span class="stepper-line" aria-hidden="true"></span>
+        <div role="listitem" class="stepper-item is-done"><span class="stepper-dot">2</span><span class="stepper-label">Passengers</span></div>
+        <span class="stepper-line" aria-hidden="true"></span>
+        <div role="listitem" class="stepper-item is-current" aria-current="step"><span class="stepper-dot">3</span><span class="stepper-label">Payment</span></div>
+        <span class="stepper-line" aria-hidden="true"></span>
+        <div role="listitem" class="stepper-item"><span class="stepper-dot">4</span><span class="stepper-label">Ticket</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="page-wrap py-8 lg:py-12">
+    <form id="paymentForm" class="grid gap-6 lg:grid-cols-12" novalidate>
+      <div class="space-y-6 lg:col-span-7">
+        <div class="panel p-5 sm:p-6">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="eyebrow">Payment method</p>
+              <h2 class="mt-2 font-display text-xl font-semibold tracking-tight">How would you like to pay?</h2>
+            </div>
+            <span class="hidden font-mono text-[9px] tracking-[0.14em] text-muted sm:block">Step 3 of 4</span>
+          </div>
+
+          <div class="mt-5 grid gap-2 sm:grid-cols-2" role="group" aria-label="Payment method">
+            <button type="button" class="pay-method" data-method="bkash" aria-pressed="true">
+              <span class="method-badge" style="background:#E2136E;color:#fff">bK</span>
+              <span class="min-w-0"><span class="block text-sm font-semibold">bKash</span><span class="mt-0.5 block text-[11px] text-muted">Wallet, instant</span></span>
+              <svg class="method-check ml-auto h-4 w-4 text-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="pay-method" data-method="nagad" aria-pressed="false">
+              <span class="method-badge" style="background:#B93A0D;color:#fff">N</span>
+              <span class="min-w-0"><span class="block text-sm font-semibold">Nagad</span><span class="mt-0.5 block text-[11px] text-muted">Wallet, instant</span></span>
+              <svg class="method-check ml-auto h-4 w-4 text-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="pay-method" data-method="card" aria-pressed="false">
+              <span class="method-badge" style="background:#12201A;color:#F7F3E8">••</span>
+              <span class="min-w-0"><span class="block text-sm font-semibold">Card</span><span class="mt-0.5 block text-[11px] text-muted">Visa, Mastercard, Amex</span></span>
+              <svg class="method-check ml-auto h-4 w-4 text-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="pay-method" data-method="bank" aria-pressed="false">
+              <span class="method-badge" style="background:#266210;color:#F7F3E8">৳</span>
+              <span class="min-w-0"><span class="block text-sm font-semibold">Bank transfer</span><span class="mt-0.5 block text-[11px] text-muted">Sonali, BRAC, City</span></span>
+              <svg class="method-check ml-auto h-4 w-4 text-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+
+          <div class="mt-6 border-t border-edge pt-5">
+            <div data-method-panel="bkash">
+              <p class="text-sm font-semibold">Pay with bKash</p>
+              <p class="mt-1 text-xs leading-relaxed text-muted">A payment prompt appears in your bKash app. Approve it within two minutes.</p>
+              <div class="mt-4 max-w-sm">
+                <label for="bkashNumber" class="field-label">bKash number</label>
+                <input id="bkashNumber" data-wallet-input type="tel" inputmode="numeric" autocomplete="tel" class="input mt-2" value="01712345678">
+                <p class="error-text" hidden></p>
+              </div>
+              <div class="mt-4 alert alert-info">
+                <svg class="mt-0.5 h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg>
+                <span>Use the number registered with bKash. The wallet prompt is simulated in this concept.</span>
+              </div>
+            </div>
+
+            <div data-method-panel="nagad" hidden>
+              <p class="text-sm font-semibold">Pay with Nagad</p>
+              <p class="mt-1 text-xs leading-relaxed text-muted">Open Nagad and approve the prompt. You will return here automatically.</p>
+              <div class="mt-4 max-w-sm">
+                <label for="nagadNumber" class="field-label">Nagad number</label>
+                <input id="nagadNumber" data-wallet-input type="tel" inputmode="numeric" autocomplete="tel" class="input mt-2" value="01712345678">
+                <p class="error-text" hidden></p>
+              </div>
+            </div>
+
+            <div data-method-panel="card" hidden>
+              <p class="text-sm font-semibold">Pay by card</p>
+              <p class="mt-1 text-xs leading-relaxed text-muted">Visa, Mastercard and American Express are accepted. 3-D Secure may ask for an OTP.</p>
+              <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                <div class="sm:col-span-2">
+                  <label for="cardName" class="field-label">Name on card</label>
+                  <input id="cardName" class="input mt-2" autocomplete="cc-name" value="Nusrat Rahman">
+                  <p class="error-text" hidden></p>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="cardNumber" class="field-label">Card number</label>
+                  <input id="cardNumber" class="input mt-2" inputmode="numeric" autocomplete="cc-number" value="4242 4242 4242 4242">
+                  <p class="error-text" hidden></p>
+                </div>
+                <div>
+                  <label for="cardExpiry" class="field-label">Expiry</label>
+                  <input id="cardExpiry" class="input mt-2" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" value="12/29">
+                  <p class="error-text" hidden></p>
+                </div>
+                <div>
+                  <label for="cardCvv" class="field-label">CVV</label>
+                  <input id="cardCvv" class="input mt-2" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC" value="123">
+                  <p class="error-text" hidden></p>
+                </div>
+              </div>
+            </div>
+
+            <div data-method-panel="bank" hidden>
+              <p class="text-sm font-semibold">Pay by bank transfer</p>
+              <p class="mt-1 text-xs leading-relaxed text-muted">You will be sent to your bank's secure page to approve the transfer.</p>
+              <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="bankSelect" class="field-label">Bank</label>
+                  <div class="select-wrap mt-2">
+                    <select id="bankSelect" class="select-input">
+                      <option value="">Choose a bank</option>
+                      <option selected>Sonali Bank</option>
+                      <option>BRAC Bank</option>
+                      <option>City Bank</option>
+                      <option>Dutch-Bangla Bank</option>
+                      <option>Islami Bank</option>
+                    </select>
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                  <p class="error-text" hidden></p>
+                </div>
+                <div>
+                  <label for="bankAccount" class="field-label">Account number</label>
+                  <input id="bankAccount" class="input mt-2" inputmode="numeric" autocomplete="off" value="0123456789012">
+                  <p class="error-text" hidden></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <label class="mt-5 flex items-start gap-3 text-sm text-muted">
+            <input type="checkbox" class="mt-1 h-4 w-4 accent-leaf">
+            <span>Save this payment method for next time. You can remove it from your account.</span>
+          </label>
+          <p class="mt-4 text-[11px] leading-relaxed text-muted">Demo details are prefilled so the flow can be completed. No payment is taken and no details are stored.</p>
+        </div>
+
+        <div class="rounded-xl border border-edge bg-paper-2/40 p-4 text-sm text-muted">
+          <p class="font-medium text-ink">Paying at the station?</p>
+          <p class="mt-1 text-[13px] leading-relaxed">Counter payment is not part of this concept. A live build would hold the seat for 30 minutes and release it if the counter does not confirm.</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <aside class="lg:sticky lg:top-24" aria-labelledby="paySummaryTitle">
+          <div class="panel p-6">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="eyebrow">Trip summary</p>
+                <h2 id="paySummaryTitle" class="mt-2 font-display text-xl font-semibold leading-tight tracking-tight">Your journey</h2>
+              </div>
+              <span class="flex items-center gap-1.5 rounded-full bg-brass-soft px-2.5 py-1 font-mono text-[9px] tracking-[0.1em] text-brass-ink">
+                <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+                <span id="holdClock">10:00</span>
+              </span>
+            </div>
+
+            <p id="payTrain" class="mt-5 font-display text-lg font-semibold tracking-tight">Sonar Bangla Express, 786</p>
+            <p id="payMeta" class="mt-1 text-xs leading-relaxed text-muted">Snigdha, Thu, 12 Nov, Kamalapur to Chattogram</p>
+
+            <div class="mt-4 grid grid-cols-3 gap-2 rounded-xl border border-edge bg-paper-2/40 p-3">
+              <div><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Class</p><p id="sumClass" class="mt-1 text-[12px] font-medium">Snigdha</p></div>
+              <div><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Date</p><p id="sumDate" class="mt-1 text-[12px] font-medium">Thu, 12 Nov</p></div>
+              <div><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Seats</p><p id="sumSeats" class="mt-1 font-mono text-[12px] font-medium">B1</p></div>
+            </div>
+            <p class="mt-2 text-[11px] text-muted">Seat <span id="paySeats" class="font-mono text-ink">B1</span>, Coach KA</p>
+
+            <dl class="mt-5 space-y-2 border-t border-edge pt-4 text-sm">
+              <div class="flex items-baseline justify-between gap-3"><dt class="text-muted">Fare</dt><dd id="payFare" class="font-mono">৳855 × 1</dd></div>
+              <div class="flex items-baseline justify-between gap-3"><dt class="text-muted">Subtotal</dt><dd id="sumFare" class="font-mono">৳855</dd></div>
+              <div class="flex items-baseline justify-between gap-3"><dt class="text-muted">VAT</dt><dd class="text-xs text-muted">Included</dd></div>
+              <div class="flex items-baseline justify-between gap-3"><dt class="text-muted">Service fee</dt><dd class="text-xs text-muted">৳0</dd></div>
+              <div class="mt-3 flex items-baseline justify-between gap-3 border-t border-edge pt-3"><dt class="font-medium">Total</dt><dd id="sumTotal" class="font-mono text-2xl font-medium tracking-tight">৳855</dd></div>
+            </dl>
+
+            <button id="payNowBtn" type="submit" class="btn-primary mt-5 w-full">Pay <span id="payButtonAmount">৳855</span></button>
+            <p class="mt-3 text-center text-[11px] leading-relaxed text-muted">Paying with <span id="payMethodLabel" class="text-ink">bKash</span>. By continuing you accept the fare and refund rules.</p>
+            <div class="mt-4 flex items-center justify-between gap-3 border-t border-edge pt-4 text-[11px] text-muted">
+              <a href="help.html#refunds" class="font-medium text-leaf hover:underline">Fare rules</a>
+              <a href="help.html" class="hover:text-ink">Need help? 13107</a>
+            </div>
+          </div>
+          <p class="mt-3 flex items-center justify-center gap-2 text-[11px] text-muted">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke-linecap="round"/></svg>
+            Secure concept checkout, nothing is charged
+          </p>
+          <p id="payStatus" class="sr-only" aria-live="polite"></p>
+        </aside>
+      </div>
+    </form>
+  </section>
+</main>
+
+<div class="fixed inset-x-0 bottom-0 z-40 lg:hidden">
+  <div class="mx-3 mb-3 flex items-center justify-between gap-3 rounded-xl border border-paper/10 bg-forest px-4 py-3 text-paper shadow-[0_20px_40px_-12px_rgba(9,20,15,.6)]">
+    <div>
+      <p class="font-mono text-[9px] tracking-[0.14em] text-paper/60">Total to pay</p>
+      <p class="mt-0.5 font-mono text-lg font-medium leading-none">৳<span id="mobilePayTotal">855</span></p>
+    </div>
+    <button type="submit" form="paymentForm" class="btn-bright btn-sm">Pay now</button>
+  </div>
+</div>
+
+<footer class="site-footer on-forest pb-20 lg:pb-0">
+  <div class="page-wrap py-14">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
+      <div>
+        <div class="flex items-center gap-3 text-paper">
+          <svg class="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+          <span class="font-display text-xl font-bold tracking-[-0.04em]">tikit</span>
+          <span class="font-bangla text-sm text-paper/60">টিকিট</span>
+        </div>
+        <p class="mt-4 max-w-[34ch] text-sm leading-relaxed">Intercity rail, booked without the queue. A design concept for Bangladesh Railway travellers.</p>
+        <p class="mt-4 max-w-[36ch] text-[11px] leading-relaxed text-paper/60">Independent concept. Not affiliated with Bangladesh Railway. Fares and timings are sample data.</p>
+      </div>
+      <nav aria-label="Journey"><p class="footer-heading">Journey</p><ul class="mt-4 space-y-2.5 text-sm"><li><a href="trains.html" class="footer-link">Search trains</a></li><li><a href="booking.html" class="footer-link">Seat map</a></li><li><a href="dashboard.html" class="footer-link">My trips</a></li><li><a href="help.html" class="footer-link">Refunds and help</a></li></ul></nav>
+      <div><p class="footer-heading">Stations</p><ul class="mt-4 space-y-2.5 text-sm"><li>Kamalapur, Dhaka</li><li>Chattogram</li><li>Sylhet</li><li>Rajshahi</li><li>Khulna</li><li>Cox's Bazar</li></ul></div>
+      <div><p class="footer-heading">Support</p><a href="tel:13107" class="mt-4 inline-flex items-baseline gap-2 text-paper transition hover:text-leaf-bright"><span class="font-mono text-2xl font-medium">13107</span><span class="text-[10px] tracking-[0.14em] text-paper/60">helpline</span></a><p class="mt-2 text-sm">Every day, 7am to 11pm</p><p class="mt-5 max-w-[28ch] text-[11px] leading-relaxed text-paper/60">Seat holds, refunds, and wheelchair berths. Ask for the station desk.</p></div>
+    </div>
+    <div class="mt-12 flex flex-col gap-3 border-t border-paper/10 pt-6 text-[11px] text-paper/60 sm:flex-row sm:items-center sm:justify-between"><p>Concept design, Dhaka, 2026</p><p class="font-bangla text-[11px] text-paper/60" lang="bn">শুভ যাত্রা</p></div>
+  </div>
+</footer>
+
+</body>
+</html>

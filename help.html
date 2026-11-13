@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help and refunds, tikit</title>
+<meta name="description" content="Answers about bookings, refunds, payment, accessibility and live train status. A concept help centre for tikit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Bengali:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+</head>
+<body data-page="help">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header on-forest">
+  <div class="page-wrap header-inner">
+    <a href="index.html" class="brand" aria-label="tikit home">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+      <span class="brand-text"><span class="brand-name">tikit</span><span class="brand-sub">আন্তঃনগর</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="trains.html">Book</a>
+      <a class="nav-link" href="dashboard.html">My trips</a>
+      <a class="nav-link" href="help.html" aria-current="page">Help</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button type="button" class="lang-btn" data-lang-toggle aria-label="Switch to English" title="Switch to English">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+        <span data-lang-label>English</span>
+      </button>
+      <a href="tel:13107" class="header-phone"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h3l1.5 4-2 1.5a12 12 0 0 0 7 7L16 14.5l4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4Z" stroke-linecap="round" stroke-linejoin="round"/></svg>13107</a>
+      <a href="login.html" class="header-signin">Sign in</a>
+      <a href="register.html" class="btn-bright btn-sm hidden sm:inline-flex">Create account</a>
+      <button id="menuBtn" type="button" class="menu-btn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg class="menu-icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        <svg class="close-icon hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="trains.html">Book a seat</a>
+      <a href="dashboard.html">My trips</a>
+      <a href="help.html" aria-current="page">Help and refunds</a>
+    </nav>
+    <div class="menu-sep"></div>
+    <a href="login.html">Sign in</a>
+    <a href="register.html">Create an account</a>
+    <p class="mt-3 px-3 text-xs text-paper/65">Helpline <a class="ml-1 inline font-mono text-paper/80" href="tel:13107">13107</a></p>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero on-forest">
+    <div class="page-wrap page-hero__inner">
+      <div class="max-w-[760px]">
+        <p class="eyebrow">Support</p>
+        <h1 class="mt-3 font-display text-[clamp(2.3rem,4.8vw,3.6rem)] font-semibold leading-[1.01] tracking-[-0.038em]">Help, without the hold music.</h1>
+        <p class="mt-4 max-w-[54ch] text-[15px] leading-relaxed text-paper/70">Search the common questions, check a train, or work out a refund. The station desk is still one call away.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="checkout-bar bg-paper">
+    <div class="page-wrap flex flex-col gap-3 py-5 lg:flex-row lg:items-center lg:justify-between">
+      <div class="w-full max-w-[440px]">
+        <label for="faqSearch" class="sr-only">Search help</label>
+        <div class="relative">
+          <svg class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4" stroke-linecap="round"/></svg>
+          <input id="faqSearch" type="search" class="input h-12 pl-12 pr-4" placeholder="Try “refund”, “bKash” or “wheelchair”">
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2" role="group" aria-label="Filter help by topic">
+        <button type="button" class="chip" data-faq-filter="all" aria-pressed="true">All topics</button>
+        <button type="button" class="chip" data-faq-filter="booking" aria-pressed="false">Booking</button>
+        <button type="button" class="chip" data-faq-filter="refund" aria-pressed="false">Refunds</button>
+        <button type="button" class="chip" data-faq-filter="payment" aria-pressed="false">Payment</button>
+        <button type="button" class="chip" data-faq-filter="travel" aria-pressed="false">Travel</button>
+        <button type="button" class="chip" data-faq-filter="access" aria-pressed="false">Access</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrap py-10 lg:py-14">
+    <div class="grid gap-10 lg:grid-cols-12 lg:gap-12">
+      <section class="lg:col-span-7 xl:col-span-8" aria-labelledby="faqTitle">
+        <div class="flex items-end justify-between gap-4">
+          <div><p class="eyebrow">Common questions</p><h2 id="faqTitle" class="mt-2 font-display text-2xl font-semibold tracking-tight">The short answers.</h2></div>
+          <p class="hidden text-[11px] text-muted sm:block">Filtered live as you type</p>
+        </div>
+
+        <div class="faq mt-4">
+          <details data-category="booking" open>
+            <summary>How long is a seat held?</summary>
+            <div class="faq-body">Ten minutes from the moment you continue from the seat map. The timer is visible on the booking and payment screens. If it runs out, the seats are released and you choose again.</div>
+          </details>
+          <details data-category="booking">
+            <summary>Can I book without creating an account?</summary>
+            <div class="faq-body">Yes. Search, choose a seat and pay as a guest. An account only adds convenience: saved passengers, payment methods, and a single place for every PNR.</div>
+          </details>
+          <details data-category="booking">
+            <summary>When do seats release for a date?</summary>
+            <div class="faq-body">This concept shows seats releasing ten days ahead. A live build would follow the railway's own advance booking window, including Eid and holiday rules.</div>
+          </details>
+          <details data-category="refund">
+            <summary>How do I cancel and get a refund?</summary>
+            <div class="faq-body">Open the trip from <a class="text-leaf underline underline-offset-2" href="dashboard.html">My trips</a> and choose cancel. More than 24 hours before departure, 90% of the fare starts back to the original payment method. Three working days is the usual arrival time.</div>
+          </details>
+          <details data-category="refund">
+            <summary>Can I change the passenger name?</summary>
+            <div class="faq-body">Name changes are not part of this concept. In a live product, they would depend on the railway's rules and the time left before departure. For now, cancel and rebook.</div>
+          </details>
+          <details data-category="payment">
+            <summary>Which wallets and cards do you accept?</summary>
+            <div class="faq-body">bKash, Nagad, Visa, Mastercard, American Express, and bank transfer from Sonali, BRAC, City, Dutch-Bangla and Islami Bank. The checkout is a design prototype, so nothing is charged.</div>
+          </details>
+          <details data-category="travel">
+            <summary>What if the train is late?</summary>
+            <div class="faq-body">Check the live status card on this page or in your dashboard. Platform changes are sent by SMS when you opt in. If the railway cancels a service, a full refund would start automatically.</div>
+          </details>
+          <details data-category="travel">
+            <summary>Is the ticket valid on my phone?</summary>
+            <div class="faq-body">Yes. The PNR and gate code are enough. Keep a screenshot offline for peace of mind, and carry the photo ID used in the booking.</div>
+          </details>
+          <details data-category="access">
+            <summary>Can I book a women's coach seat?</summary>
+            <div class="faq-body">Every intercity carries a Mahila compartment. In a live build, the seat map would switch to that coach when the filter is on. This concept shows the control and marks the feature on the map.</div>
+          </details>
+          <details data-category="access">
+            <summary>Wheelchair or extra help at the station?</summary>
+            <div class="faq-body">Call <a class="font-mono text-leaf underline underline-offset-2" href="tel:13107">13107</a> at least four hours before departure. The station desk can arrange a wheelchair, boarding help, and a lower berth where available.</div>
+          </details>
+        </div>
+        <p id="faqEmpty" class="border-t border-edge py-8 text-sm text-muted" hidden>No questions match that search. Try another word, or call 13107.</p>
+      </section>
+
+      <aside class="space-y-5 lg:col-span-5 xl:col-span-4">
+        <section id="live" class="panel scroll-mt-24 p-5">
+          <div class="flex items-center justify-between gap-3">
+            <p class="eyebrow">Live running status</p>
+            <span class="inline-flex items-center gap-1.5 font-mono text-[9px] tracking-[0.12em] text-muted"><span class="dot dot-leaf"></span> Sample feed</span>
+          </div>
+          <h2 class="mt-3 font-display text-xl font-semibold tracking-tight">Where is my train?</h2>
+          <form id="statusForm" class="mt-4 flex gap-2">
+            <div class="select-wrap min-w-0 flex-1">
+              <select id="statusTrain" class="select-input" aria-label="Choose a train">
+                <option value="786" selected>Sonar Bangla, 786</option>
+                <option value="704">Mohanagar Provati, 704</option>
+                <option value="816">Parjotak Express, 816</option>
+                <option value="742">Turna Nishita, 742</option>
+                <option value="710">Parabat Express, 710</option>
+                <option value="760">Padma Express, 760</option>
+              </select>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <button type="submit" class="btn-outline btn-sm shrink-0">Check</button>
+          </form>
+          <div id="statusResult" class="mt-4 rounded-xl border border-edge bg-paper-2/40 p-4" hidden>
+            <div class="flex items-start justify-between gap-3">
+              <div><p id="statusName" class="font-display text-base font-semibold">Sonar Bangla Express, 786</p><p id="statusRoute" class="mt-0.5 text-xs text-muted">Dhaka → Chattogram</p></div>
+              <span id="statusChip" class="rounded-full bg-leaf-soft px-2.5 py-1 font-mono text-[9px] tracking-[0.1em] text-leaf">On time</span>
+            </div>
+            <div class="mt-3 grid grid-cols-2 gap-3 border-t border-edge pt-3 text-xs">
+              <div><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Running</p><p id="statusTime" class="mt-1">07:00 → 12:35</p></div>
+              <div><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Platform</p><p id="statusPlatform" class="mt-1">Platform 4</p></div>
+            </div>
+          </div>
+          <p class="mt-3 text-[11px] leading-relaxed text-muted">Sample feed. Live railway data would connect at launch.</p>
+        </section>
+
+        <section id="refunds" class="panel scroll-mt-24 p-5">
+          <p class="eyebrow">Refund calculator</p>
+          <h2 class="mt-3 font-display text-xl font-semibold tracking-tight">Work out the return.</h2>
+          <form id="refundForm" class="mt-4" novalidate>
+            <div>
+              <label for="refundFare" class="field-label">Fare paid</label>
+              <input id="refundFare" type="number" min="0" step="1" class="input mt-2" value="855">
+            </div>
+            <div class="mt-3">
+              <label for="refundTiming" class="field-label">Cancellation window</label>
+              <div class="select-wrap mt-2">
+                <select id="refundTiming" class="select-input">
+                  <option value="72">More than 48 hours before</option>
+                  <option value="48" selected>24 to 48 hours before</option>
+                  <option value="24">12 to 24 hours before</option>
+                  <option value="12">Less than 12 hours before</option>
+                  <option value="0">After departure</option>
+                </select>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <button type="submit" class="btn-outline btn-sm mt-4 w-full">Calculate refund</button>
+          </form>
+          <div class="mt-4 rounded-xl border border-edge bg-paper-2/40 p-4">
+            <div class="flex items-baseline justify-between gap-3"><span class="text-xs text-muted">Estimated back</span><span id="refundAmount" class="font-mono text-2xl font-medium">৳0</span></div>
+            <p id="refundNote" class="mt-2 text-[11px] leading-relaxed text-muted">Choose a window and calculate. Sample policy for this concept.</p>
+          </div>
+        </section>
+
+        <section class="rounded-xl border border-edge bg-paper-2/40 p-5">
+          <p class="eyebrow">Talk to a person</p>
+          <a href="tel:13107" class="mt-3 inline-flex items-baseline gap-2 text-ink transition hover:text-leaf"><span class="font-mono text-2xl font-medium">13107</span><span class="text-[10px] tracking-[0.14em] text-muted">helpline</span></a>
+          <p class="mt-2 text-sm text-muted">Every day, 7am to 11pm</p>
+          <div class="mt-4 space-y-2 border-t border-edge pt-4 text-sm">
+            <p><span class="text-muted">Email</span> <a href="mailto:help@tikit.example" class="ml-2 font-medium text-leaf hover:underline">help@tikit.example</a></p>
+            <p><span class="text-muted">Station</span> <span class="ml-2">Kamalapur ticket desk, platform 1</span></p>
+            <p><span class="text-muted">Access</span> <span class="ml-2">Ask for the station manager</span></p>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <section id="fares" class="scroll-mt-24 border-y border-edge bg-paper-2/40">
+    <div class="page-wrap py-12 lg:py-16">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="eyebrow">Fare chart</p>
+          <h2 class="mt-2 font-display text-[clamp(1.8rem,3.4vw,2.6rem)] font-semibold tracking-[-0.03em]">What a seat costs.</h2>
+        </div>
+        <p class="max-w-[42ch] text-sm leading-relaxed text-muted">Sample one-way fares, VAT included. Children under five travel free. The full railway fare table would replace this at launch.</p>
+      </div>
+      <div class="mt-6 overflow-x-auto rounded-xl border border-edge bg-paper">
+        <table class="data-table min-w-[620px]">
+          <thead><tr><th scope="col">Route</th><th scope="col">Shovan</th><th scope="col">Snigdha</th><th scope="col">AC Berth</th><th scope="col">F-Berth</th></tr></thead>
+          <tbody>
+            <tr><td class="font-medium">Dhaka → Chattogram</td><td class="font-mono">৳345</td><td class="font-mono">৳855</td><td class="font-mono">৳1,325</td><td class="font-mono">৳1,580</td></tr>
+            <tr><td class="font-medium">Dhaka → Sylhet</td><td class="font-mono">৳315</td><td class="font-mono">৳780</td><td class="font-mono">৳1,180</td><td class="font-mono">৳1,420</td></tr>
+            <tr><td class="font-medium">Dhaka → Rajshahi</td><td class="font-mono">৳305</td><td class="font-mono">৳760</td><td class="font-mono">৳1,150</td><td class="font-mono">৳1,380</td></tr>
+            <tr><td class="font-medium">Dhaka → Cox's Bazar</td><td class="font-mono">৳395</td><td class="font-mono">৳1,050</td><td class="font-mono">৳1,650</td><td class="font-mono">৳1,980</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 text-[11px] text-muted">Fares are illustrative. Real railway pricing, discounts and holiday surcharges would apply.</p>
+    </div>
+  </section>
+
+  <section id="terms" class="page-wrap scroll-mt-24 py-12 lg:py-16">
+    <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <p class="eyebrow">The fine print</p>
+        <h2 class="mt-2 font-display text-[clamp(1.8rem,3.4vw,2.6rem)] font-semibold tracking-[-0.03em]">Small terms, plainly.</h2>
+        <p class="mt-3 max-w-[34ch] text-sm leading-relaxed text-muted">This is a design concept, not a railway service. Nothing here books a real seat or charges money.</p>
+      </div>
+      <div class="lg:col-span-8">
+        <ul class="divide-y divide-edge border-y border-edge text-sm text-muted">
+          <li class="grid grid-cols-[28px_1fr] gap-4 py-4"><span class="font-mono text-[10px] text-muted">01</span><p>Tickets and fares are sample data for four corridors. They do not represent Bangladesh Railway inventory or pricing.</p></li>
+          <li class="grid grid-cols-[28px_1fr] gap-4 py-4"><span class="font-mono text-[10px] text-muted">02</span><p>A live booking would follow the railway's advance booking window, passenger ID rules and cancellation policy. The numbers here are illustrative.</p></li>
+          <li class="grid grid-cols-[28px_1fr] gap-4 py-4"><span class="font-mono text-[10px] text-muted">03</span><p>Payments, refunds and PNRs are simulated in the browser. No card, wallet or bank details are transmitted or stored.</p></li>
+          <li class="grid grid-cols-[28px_1fr] gap-4 py-4"><span class="font-mono text-[10px] text-muted">04</span><p>Independent concept, not affiliated with Bangladesh Railway. “tikit” is a working name for this design.</p></li>
+        </ul>
+        <p class="mt-4 text-[11px] leading-relaxed text-muted">Questions about the concept? The helpline number in this design is the railway's public number, shown for realism only.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer on-forest">
+  <div class="page-wrap py-14">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
+      <div>
+        <div class="flex items-center gap-3 text-paper">
+          <svg class="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+          <span class="font-display text-xl font-bold tracking-[-0.04em]">tikit</span>
+          <span class="font-bangla text-sm text-paper/60">টিকিট</span>
+        </div>
+        <p class="mt-4 max-w-[34ch] text-sm leading-relaxed">Intercity rail, booked without the queue. A design concept for Bangladesh Railway travellers.</p>
+        <p class="mt-4 max-w-[36ch] text-[11px] leading-relaxed text-paper/60">Independent concept. Not affiliated with Bangladesh Railway. Fares and timings are sample data.</p>
+      </div>
+      <nav aria-label="Journey"><p class="footer-heading">Journey</p><ul class="mt-4 space-y-2.5 text-sm"><li><a href="trains.html" class="footer-link">Search trains</a></li><li><a href="booking.html" class="footer-link">Seat map</a></li><li><a href="dashboard.html" class="footer-link">My trips</a></li><li><a href="help.html" class="footer-link">Refunds and help</a></li></ul></nav>
+      <div><p class="footer-heading">Stations</p><ul class="mt-4 space-y-2.5 text-sm"><li>Kamalapur, Dhaka</li><li>Chattogram</li><li>Sylhet</li><li>Rajshahi</li><li>Khulna</li><li>Cox's Bazar</li></ul></div>
+      <div><p class="footer-heading">Support</p><a href="tel:13107" class="mt-4 inline-flex items-baseline gap-2 text-paper transition hover:text-leaf-bright"><span class="font-mono text-2xl font-medium">13107</span><span class="text-[10px] tracking-[0.14em] text-paper/60">helpline</span></a><p class="mt-2 text-sm">Every day, 7am to 11pm</p><p class="mt-5 max-w-[28ch] text-[11px] leading-relaxed text-paper/60">Seat holds, refunds, and wheelchair berths. Ask for the station desk.</p></div>
+    </div>
+    <div class="mt-12 flex flex-col gap-3 border-t border-paper/10 pt-6 text-[11px] text-paper/60 sm:flex-row sm:items-center sm:justify-between"><p>Concept design, Dhaka, 2026</p><p class="font-bangla text-[11px] text-paper/60" lang="bn">শুভ যাত্রা</p></div>
+  </div>
+</footer>
+
+</body>
+</html>

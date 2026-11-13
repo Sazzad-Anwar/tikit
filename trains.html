@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find a train, tikit</title>
+<meta name="description" content="Search intercity trains, compare classes and fares, and choose a seat. A concept booking experience for Bangladesh Railway.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Bengali:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+</head>
+<body data-page="trains">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header on-forest">
+  <div class="page-wrap header-inner">
+    <a href="index.html" class="brand" aria-label="tikit home">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+      <span class="brand-text"><span class="brand-name">tikit</span><span class="brand-sub">আন্তঃনগর</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="trains.html" aria-current="page">Book</a>
+      <a class="nav-link" href="dashboard.html">My trips</a>
+      <a class="nav-link" href="help.html">Help</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button type="button" class="lang-btn" data-lang-toggle aria-label="Switch to English" title="Switch to English">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+        <span data-lang-label>English</span>
+      </button>
+      <a href="tel:13107" class="header-phone"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h3l1.5 4-2 1.5a12 12 0 0 0 7 7L16 14.5l4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4Z" stroke-linecap="round" stroke-linejoin="round"/></svg>13107</a>
+      <a href="login.html" class="header-signin">Sign in</a>
+      <a href="register.html" class="btn-bright btn-sm hidden sm:inline-flex">Create account</a>
+      <button id="menuBtn" type="button" class="menu-btn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg class="menu-icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        <svg class="close-icon hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="trains.html" aria-current="page">Book a seat</a>
+      <a href="dashboard.html">My trips</a>
+      <a href="help.html">Help and refunds</a>
+    </nav>
+    <div class="menu-sep"></div>
+    <a href="login.html">Sign in</a>
+    <a href="register.html">Create an account</a>
+    <p class="mt-3 px-3 text-xs text-paper/65">Helpline <a class="ml-1 inline font-mono text-paper/80" href="tel:13107">13107</a></p>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero on-forest">
+    <div class="page-wrap page-hero__inner">
+      <nav class="font-mono text-[9px] tracking-[0.16em] text-paper/60" aria-label="Breadcrumb">
+        <a href="index.html" class="hover:text-paper">Home</a><span class="mx-2">/</span><span aria-current="page">Search</span>
+      </nav>
+      <div class="mt-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="eyebrow"><span id="resultDate">Thursday, 12 November</span>, <span id="resultCount">6 services</span></p>
+          <h1 id="routeTitle" class="mt-3 flex flex-wrap items-baseline gap-x-3 font-display text-[clamp(2.1rem,4.5vw,3.4rem)] font-semibold leading-[1.01] tracking-[-0.038em]">
+            Dhaka
+            <svg class="h-6 w-6 self-center text-leaf-bright" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Chattogram
+          </h1>
+          <p id="routeBengali" class="mt-2 font-bangla text-sm text-paper/65">ঢাকা থেকে চট্টগ্রাম</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-sm text-paper/75">
+          <span class="inline-flex items-center gap-2"><span class="dot"></span><span id="resultPax">1 passenger</span></span>
+          <span class="h-4 w-px bg-paper/20"></span>
+          <span>Seats release 10 days ahead</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-wrap py-8 lg:py-10">
+    <form id="refineForm" class="panel p-4 sm:p-5" data-date="2026-11-12" data-pax="1" novalidate>
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto] lg:items-end">
+        <div class="relative">
+          <label for="refineFrom" class="field-label">From</label>
+          <select id="refineFrom" name="from" class="select-input mt-1.5">
+            <option value="dhaka" selected>Dhaka, Kamalapur</option>
+            <option value="chattogram">Chattogram</option>
+            <option value="sylhet">Sylhet</option>
+            <option value="rajshahi">Rajshahi</option>
+            <option value="khulna">Khulna</option>
+            <option value="coxsbazar">Cox's Bazar</option>
+          </select>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" class="pointer-events-none absolute bottom-4 right-3 h-4 w-4 text-muted" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <button type="button" data-swap class="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full border border-edge bg-paper-2 text-ink transition hover:border-leaf hover:bg-leaf-soft hover:text-leaf lg:flex" aria-label="Swap origin and destination">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="relative">
+          <label for="refineTo" class="field-label">To</label>
+          <select id="refineTo" name="to" class="select-input mt-1.5">
+            <option value="dhaka">Dhaka, Kamalapur</option>
+            <option value="chattogram" selected>Chattogram</option>
+            <option value="sylhet">Sylhet</option>
+            <option value="rajshahi">Rajshahi</option>
+            <option value="khulna">Khulna</option>
+            <option value="coxsbazar">Cox's Bazar</option>
+          </select>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" class="pointer-events-none absolute bottom-4 right-3 h-4 w-4 text-muted" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <p class="field-label">Travel date</p>
+          <div class="mt-1.5 flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Travel date">
+            <button type="button" class="date-chip" data-date="2026-11-12" aria-pressed="true"><span class="font-sans text-xs font-semibold">Thu</span><span class="font-mono text-[11px] opacity-75">12 Nov</span></button>
+            <button type="button" class="date-chip" data-date="2026-11-13" aria-pressed="false"><span class="font-sans text-xs font-semibold">Fri</span><span class="font-mono text-[11px] opacity-75">13 Nov</span></button>
+            <button type="button" class="date-chip" data-date="2026-11-14" aria-pressed="false"><span class="font-sans text-xs font-semibold">Sat</span><span class="font-mono text-[11px] opacity-75">14 Nov</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-wrap items-end gap-4 border-t border-edge pt-4">
+        <div class="w-full sm:w-48">
+          <label for="refineClass" class="field-label">Class</label>
+          <div class="select-wrap mt-1.5">
+            <select id="refineClass" name="class" class="select-input">
+              <option value="all" selected>Any class</option>
+              <option value="shovan">Shovan</option>
+              <option value="snigdha">Snigdha</option>
+              <option value="berth">AC Berth</option>
+            </select>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 8 5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div>
+          <p class="field-label">Passengers</p>
+          <div class="mt-1.5 flex h-12 w-full items-center justify-between gap-3 rounded-xl border border-edge px-2 sm:w-44">
+            <button type="button" data-pax-minus class="step-btn" aria-label="Remove one passenger" disabled><svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 10h10" stroke-linecap="round"/></svg></button>
+            <span class="flex items-baseline gap-1.5"><span data-pax-count class="font-mono text-base font-medium">1</span><span data-pax-single class="text-xs text-muted">adult</span></span>
+            <button type="button" data-pax-plus class="step-btn" aria-label="Add one passenger"><svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 5v10M5 10h10" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p id="routeNote" class="ml-auto hidden max-w-[26ch] text-[11px] leading-relaxed text-muted xl:block">Kamalapur to Chattogram. Sample board, seats are not live inventory.</p>
+        <button type="submit" class="btn-primary h-12 w-full px-6 sm:ml-auto sm:w-auto">Update search</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="page-wrap pb-20 lg:pb-28" aria-labelledby="resultsHeading">
+    <div class="flex flex-col gap-4 border-y border-edge py-4 xl:flex-row xl:items-center xl:justify-between">
+      <h2 id="resultsHeading" class="sr-only">Train results</h2>
+      <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by class">
+        <button type="button" class="chip filter-class" data-filter-class="all" aria-pressed="true">All classes</button>
+        <button type="button" class="chip filter-class" data-filter-class="shovan" aria-pressed="false">Shovan</button>
+        <button type="button" class="chip filter-class" data-filter-class="snigdha" aria-pressed="false">Snigdha</button>
+        <button type="button" class="chip filter-class" data-filter-class="berth" aria-pressed="false">AC Berth</button>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <div class="flex items-center gap-1" role="group" aria-label="Filter by departure time">
+          <button type="button" class="chip-mini filter-dep" data-filter-dep="all" aria-pressed="true">Any time</button>
+          <button type="button" class="chip-mini filter-dep" data-filter-dep="morning" aria-pressed="false">Morning</button>
+          <button type="button" class="chip-mini filter-dep" data-filter-dep="afternoon" aria-pressed="false">Afternoon</button>
+          <button type="button" class="chip-mini filter-dep" data-filter-dep="evening" aria-pressed="false">Evening</button>
+        </div>
+        <span class="hidden h-5 w-px bg-edge sm:block"></span>
+        <label class="switch">
+          <input id="availOnly" type="checkbox">
+          <span class="track" aria-hidden="true"></span>
+          <span>Available only</span>
+        </label>
+        <div class="flex items-center gap-2">
+          <label for="sortTrains" class="font-mono text-[9px] tracking-[0.14em] text-muted">Sort</label>
+          <select id="sortTrains" class="h-11 rounded-md border border-edge bg-paper px-3 text-xs">
+            <option value="dep">Departure</option>
+            <option value="fare">Lowest fare</option>
+            <option value="duration">Shortest</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultsWrap">
+      <div class="mt-4 flex items-center justify-between gap-4">
+        <p id="visibleCount" class="font-mono text-[10px] tracking-[0.14em] text-muted">6 of 6 trains</p>
+        <p class="text-[11px] text-muted">Fares include VAT, sample data</p>
+      </div>
+      <p id="resultsStatus" class="sr-only" aria-live="polite">6 trains found</p>
+
+      <div id="trainList" class="mt-2 divide-y divide-edge">
+        <div class="grid gap-5 py-7 md:grid-cols-[215px_1fr_auto] md:items-center" aria-hidden="true">
+          <div class="space-y-2"><div class="h-7 w-40 animate-pulse rounded bg-paper-2"></div><div class="h-3 w-32 animate-pulse rounded bg-paper-2"></div></div>
+          <div class="space-y-2"><div class="h-4 w-52 animate-pulse rounded bg-paper-2"></div><div class="h-3 w-40 animate-pulse rounded bg-paper-2"></div><div class="h-9 w-64 animate-pulse rounded-full bg-paper-2"></div></div>
+          <div class="h-11 w-32 animate-pulse rounded-full bg-paper-2"></div>
+        </div>
+        <div class="grid gap-5 py-7 md:grid-cols-[215px_1fr_auto] md:items-center" aria-hidden="true">
+          <div class="space-y-2"><div class="h-7 w-40 animate-pulse rounded bg-paper-2"></div><div class="h-3 w-32 animate-pulse rounded bg-paper-2"></div></div>
+          <div class="space-y-2"><div class="h-4 w-44 animate-pulse rounded bg-paper-2"></div><div class="h-3 w-36 animate-pulse rounded bg-paper-2"></div><div class="h-9 w-56 animate-pulse rounded-full bg-paper-2"></div></div>
+          <div class="h-11 w-32 animate-pulse rounded-full bg-paper-2"></div>
+        </div>
+      </div>
+
+      <div id="resultsEmpty" hidden class="mt-4 rounded-xl border border-dashed border-edge bg-paper-2/40 px-6 py-12 text-center">
+        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-edge bg-paper">
+          <svg class="h-5 w-5 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="mt-4 font-display text-xl font-semibold tracking-tight">No trains match those filters</h3>
+        <p class="mx-auto mt-2 max-w-[38ch] text-sm leading-relaxed text-muted">Try clearing the class filter, or widening the departure window. Sold-out services can be filtered back in.</p>
+        <button id="clearFilters" type="button" class="btn-outline mt-5">Clear filters</button>
+      </div>
+
+      <p class="mt-10 max-w-[70ch] text-[11px] leading-relaxed text-muted">Timetables, fares and seat counts are sample data for this design concept. Live inventory, real-time availability and railway fare rules would connect at launch.</p>
+    </div>
+
+    <div id="routeEmpty" hidden class="mt-4 rounded-xl border border-dashed border-edge bg-paper-2/40 px-6 py-12 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-edge bg-paper">
+        <svg class="h-5 w-5 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke-linecap="round"/></svg>
+      </div>
+      <h3 id="emptyRouteTitle" class="mt-4 font-display text-xl font-semibold tracking-tight">No sample board for this route yet</h3>
+      <p id="emptyRouteText" class="mx-auto mt-2 max-w-[44ch] text-sm leading-relaxed text-muted">This concept is wired for four corridors: Dhaka to Chattogram, Sylhet, Rajshahi and Cox’s Bazar.</p>
+      <a href="trains.html?from=dhaka&to=chattogram&date=2026-11-12&pax=1&class=all" class="btn-primary mt-5">Load the coastal board</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer on-forest">
+  <div class="page-wrap py-14">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
+      <div>
+        <div class="flex items-center gap-3 text-paper">
+          <svg class="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+          <span class="font-display text-xl font-bold tracking-[-0.04em]">tikit</span>
+          <span class="font-bangla text-sm text-paper/60">টিকিট</span>
+        </div>
+        <p class="mt-4 max-w-[34ch] text-sm leading-relaxed">Intercity rail, booked without the queue. A design concept for Bangladesh Railway travellers.</p>
+        <p class="mt-4 max-w-[36ch] text-[11px] leading-relaxed text-paper/60">Independent concept. Not affiliated with Bangladesh Railway. Fares and timings are sample data.</p>
+      </div>
+      <nav aria-label="Journey">
+        <p class="footer-heading">Journey</p>
+        <ul class="mt-4 space-y-2.5 text-sm"><li><a href="trains.html" class="footer-link">Search trains</a></li><li><a href="booking.html" class="footer-link">Seat map</a></li><li><a href="dashboard.html" class="footer-link">My trips</a></li><li><a href="help.html" class="footer-link">Refunds and help</a></li></ul>
+      </nav>
+      <div>
+        <p class="footer-heading">Stations</p>
+        <ul class="mt-4 space-y-2.5 text-sm"><li>Kamalapur, Dhaka</li><li>Chattogram</li><li>Sylhet</li><li>Rajshahi</li><li>Khulna</li><li>Cox's Bazar</li></ul>
+      </div>
+      <div>
+        <p class="footer-heading">Support</p>
+        <a href="tel:13107" class="mt-4 inline-flex items-baseline gap-2 text-paper transition hover:text-leaf-bright"><span class="font-mono text-2xl font-medium">13107</span><span class="text-[10px] tracking-[0.14em] text-paper/60">helpline</span></a>
+        <p class="mt-2 text-sm">Every day, 7am to 11pm</p>
+        <p class="mt-5 max-w-[28ch] text-[11px] leading-relaxed text-paper/60">Seat holds, refunds, and wheelchair berths. Ask for the station desk.</p>
+      </div>
+    </div>
+    <div class="mt-12 flex flex-col gap-3 border-t border-paper/10 pt-6 text-[11px] text-paper/60 sm:flex-row sm:items-center sm:justify-between">
+      <p>Concept design, Dhaka, 2026</p><p class="font-bangla text-[11px] text-paper/60" lang="bn">শুভ যাত্রা</p>
+    </div>
+  </div>
+</footer>
+
+<dialog id="waitlistDialog" class="dialog" aria-labelledby="waitlistTitle">
+  <div class="dialog-card">
+    <button type="button" class="dialog-x" data-waitlist-close aria-label="Close waitlist">
+      <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke-linecap="round"/></svg>
+    </button>
+    <p class="eyebrow">Waitlist</p>
+    <h2 id="waitlistTitle" class="mt-2 font-display text-2xl font-semibold leading-tight tracking-tight">Chattala Express, 802</h2>
+    <p id="waitlistMeta" class="mt-1.5 text-xs leading-relaxed text-muted">Shovan or Snigdha, Thu, 12 Nov</p>
+    <form id="waitlistForm" class="mt-5" novalidate>
+      <label for="phone" class="field-label">Mobile number</label>
+      <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="01XXX XXXXXX" class="input mt-2">
+      <p id="phoneError" hidden class="error-text">Enter an 11 digit number starting 01.</p>
+      <button type="submit" class="btn-primary mt-4 w-full">Join the waitlist</button>
+      <p class="mt-3 text-center text-[11px] text-muted">One text when a seat frees. Nothing else.</p>
+    </form>
+    <div id="waitlistDone" hidden class="mt-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-leaf-soft text-leaf">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3 id="waitlistDoneTitle" tabindex="-1" class="mt-4 font-display text-xl font-semibold tracking-tight">You're on the list.</h3>
+      <p class="mt-2 text-sm leading-relaxed text-muted">We'll text <span id="waitlistPhone" class="font-mono text-ink"></span> if a seat opens on this train.</p>
+      <button type="button" class="btn-outline mt-5 w-full" data-waitlist-close>Close</button>
+    </div>
+  </div>
+</dialog>
+
+</body>
+</html>

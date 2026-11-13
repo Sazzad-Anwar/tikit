@@ -1,0 +1,15 @@
+{
+  "name": "tikit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A multi-page intercity train ticket booking concept for Bangladesh Railway.",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./assets/app.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./assets/app.css --watch",
+    "serve": "python3 -m http.server 5173"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}

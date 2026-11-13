@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create account, tikit</title>
+<meta name="description" content="Create a tikit account to hold seats, save passengers, and manage refunds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Bengali:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+</head>
+<body data-page="register" class="flex min-h-dvh flex-col">
+
+<header class="site-header on-forest">
+  <div class="page-wrap header-inner">
+    <a href="index.html" class="brand" aria-label="tikit home">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+      <span class="brand-text"><span class="brand-name">tikit</span><span class="brand-sub">আন্তঃনগর</span></span>
+    </a>
+    <div class="flex items-center gap-3">
+      <button type="button" class="lang-btn" data-lang-toggle aria-label="Switch to English" title="Switch to English">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+        <span data-lang-label>English</span>
+      </button>
+      <a href="login.html" class="header-signin">Sign in</a>
+      <a href="index.html" class="btn-bright btn-sm hidden sm:inline-flex">Back to home</a>
+    </div>
+  </div>
+</header>
+
+<main class="page-wrap flex-1 lg:py-10">
+  <div class="grid grid-cols-1 overflow-hidden bg-paper lg:grid-cols-2 lg:rounded-xl lg:border lg:border-edge">
+  <section class="flex items-center justify-center bg-paper px-0 py-12 sm:py-16 lg:px-8">
+    <div class="form-wrap">
+      <h1 class="font-display text-[clamp(2.1rem,4vw,2.9rem)] font-semibold leading-[1.02] tracking-[-0.035em]">Start with a seat.</h1>
+      <p class="mt-3 text-sm leading-relaxed text-muted">One account for tickets, saved passengers, and refunds that move on their own.</p>
+
+      <div class="mt-7">
+        <div class="flex items-center gap-2" role="list" aria-label="Registration progress">
+          <div role="listitem" class="stepper-item is-current" data-register-indicator="1"><span class="stepper-dot">1</span><span class="stepper-label">Details</span></div>
+          <span class="stepper-line" aria-hidden="true"></span>
+          <div role="listitem" class="stepper-item" data-register-indicator="2"><span class="stepper-dot">2</span><span class="stepper-label">Verify</span></div>
+          <span class="stepper-line" aria-hidden="true"></span>
+          <div role="listitem" class="stepper-item" data-register-indicator="3"><span class="stepper-dot">3</span><span class="stepper-label">Ready</span></div>
+        </div>
+        <div class="progress-track mt-4" aria-hidden="true"><div id="registerProgress" class="progress-fill" style="width:0%"></div></div>
+      </div>
+
+      <div class="pt-7" data-register-step="1">
+        <form id="registerForm" novalidate>
+          <div>
+            <label for="regName" class="field-label">Full name</label>
+            <input id="regName" name="name" class="input mt-2" autocomplete="name" placeholder="As printed on your ID">
+            <p class="error-text" hidden>Enter your full name.</p>
+          </div>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="regMobile" class="field-label">Mobile number</label>
+              <input id="regMobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" class="input mt-2" placeholder="01XXX XXXXXX">
+              <p class="error-text" hidden>Enter an 11 digit mobile number.</p>
+            </div>
+            <div>
+              <label for="regEmail" class="field-label">Email</label>
+              <input id="regEmail" name="email" type="email" autocomplete="email" class="input mt-2" placeholder="you@example.com">
+              <p class="error-text" hidden>Enter a valid email.</p>
+            </div>
+          </div>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="regPassword" class="field-label">Password</label>
+              <input id="regPassword" name="password" type="password" autocomplete="new-password" class="input mt-2" placeholder="8 characters or more">
+              <p class="error-text" hidden>Use at least 8 characters.</p>
+            </div>
+            <div>
+              <label for="regConfirm" class="field-label">Confirm password</label>
+              <input id="regConfirm" name="confirm" type="password" autocomplete="new-password" class="input mt-2" placeholder="Repeat the password">
+              <p class="error-text" hidden>Passwords do not match.</p>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="flex items-center justify-between gap-3">
+              <div class="progress-track mt-0 h-1.5 flex-1"><div id="passwordStrength" class="progress-fill" style="width:0%"></div></div>
+              <span id="passwordStrengthLabel" class="w-32 text-right text-[10px] text-muted">Use 8+ characters</span>
+            </div>
+          </div>
+
+          <label class="mt-5 flex items-start gap-3 text-sm text-muted">
+            <input id="regTerms" type="checkbox" class="mt-1 h-4 w-4 accent-leaf">
+            <span>I agree to the <a href="help.html#terms" class="font-medium text-leaf hover:underline">terms</a> and the <a href="help.html#refunds" class="font-medium text-leaf hover:underline">refund policy</a>.</span>
+          </label>
+
+          <button type="submit" class="btn-primary mt-5 w-full">Continue to verify</button>
+          <p class="mt-3 text-center text-[11px] leading-relaxed text-muted">Demo signup. Use any valid-looking details, no message is sent.</p>
+        </form>
+
+        <div class="mt-7 border-t border-edge pt-5 text-center text-sm text-muted">
+          Already have an account? <a href="login.html" class="font-semibold text-leaf hover:underline">Sign in</a>
+        </div>
+      </div>
+
+      <div class="pt-7" data-register-step="2" hidden>
+        <div class="flex items-start gap-3 rounded-xl border border-edge bg-paper-2/40 p-4">
+          <span class="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-leaf-soft text-leaf">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M11 18h2" stroke-linecap="round"/></svg>
+          </span>
+          <div>
+            <p class="text-sm font-medium">Check your phone</p>
+            <p class="mt-1 text-xs leading-relaxed text-muted">We sent a six digit code to the mobile number you entered. It expires in ten minutes.</p>
+          </div>
+        </div>
+
+        <form id="registerOtpForm" class="mt-6" novalidate>
+          <p class="field-label">Verification code</p>
+          <div class="mt-3 grid max-w-[360px] grid-cols-6 gap-2">
+            <input class="otp-input" id="regOtp1" inputmode="numeric" maxlength="1" aria-label="Code digit 1" autocomplete="one-time-code">
+            <input class="otp-input" id="regOtp2" inputmode="numeric" maxlength="1" aria-label="Code digit 2">
+            <input class="otp-input" id="regOtp3" inputmode="numeric" maxlength="1" aria-label="Code digit 3">
+            <input class="otp-input" id="regOtp4" inputmode="numeric" maxlength="1" aria-label="Code digit 4">
+            <input class="otp-input" id="regOtp5" inputmode="numeric" maxlength="1" aria-label="Code digit 5">
+            <input class="otp-input" id="regOtp6" inputmode="numeric" maxlength="1" aria-label="Code digit 6">
+          </div>
+          <p class="mt-2 text-[11px] text-muted">Demo code: any six digits.</p>
+          <button type="submit" class="btn-primary mt-5 w-full">Verify and create account</button>
+          <div class="mt-3 flex items-center justify-between gap-3 text-sm">
+            <button type="button" id="registerBack" class="font-medium text-muted hover:text-ink">Back to details</button>
+            <button type="button" id="resendCode" class="font-medium text-leaf hover:underline">Resend code</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="pt-7" data-register-step="3" hidden>
+        <div class="rounded-xl border border-edge bg-paper p-6 text-center shadow-[0_24px_50px_-34px_rgba(9,20,15,.35)] sm:p-8">
+          <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-leaf-soft text-leaf">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="mt-5 stamp">Account ready</div>
+          <h2 id="registerDoneTitle" tabindex="-1" class="mt-4 font-display text-2xl font-semibold tracking-tight">Welcome aboard.</h2>
+          <p class="mx-auto mt-2 max-w-[34ch] text-sm leading-relaxed text-muted">Your account is ready. Saved passengers and payment methods can be added from your dashboard.</p>
+          <div class="mt-6 grid gap-2 sm:grid-cols-2">
+            <a href="dashboard.html" class="btn-primary">Open my dashboard</a>
+            <a href="trains.html" class="btn-outline">Book a seat</a>
+          </div>
+          <p class="mt-4 text-[11px] text-muted">You can sign in again with your mobile number and password.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="on-forest relative hidden overflow-hidden bg-forest p-10 text-paper lg:order-first lg:flex lg:flex-col lg:justify-between xl:p-12">
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image:linear-gradient(to right,rgba(238,240,229,.055) 1px,transparent 1px);background-size:84px 100%;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent)"></div>
+      <div class="absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full" style="background:radial-gradient(circle,rgba(126,191,79,.25),transparent 68%)"></div>
+      <svg class="absolute bottom-10 left-0 h-28 w-full opacity-20" viewBox="0 0 600 120" fill="none" aria-hidden="true">
+        <path d="M0 94C110 36 180 106 300 68S470 20 600 74" stroke="#F7F3E8" stroke-width="1.2" stroke-dasharray="2 9"/>
+        <circle cx="58" cy="67" r="3" fill="#F7F3E8"/><circle cx="300" cy="68" r="3" fill="#F7F3E8"/><circle cx="520" cy="52" r="3" fill="#F7F3E8"/>
+      </svg>
+    </div>
+
+    <div class="relative">
+      <p class="eyebrow text-paper/60">The tikit account</p>
+      <h2 class="mt-5 max-w-[14ch] font-display text-[clamp(2.1rem,3.2vw,3.1rem)] font-semibold leading-[1.03] tracking-[-0.038em]">One small account. A lighter journey.</h2>
+    </div>
+
+    <ul class="relative mt-10 space-y-5">
+      <li class="flex gap-4">
+        <span class="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-paper/20 text-leaf-bright"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><p class="text-sm font-medium">Seats that wait for you</p><p class="mt-1 text-[13px] leading-relaxed text-paper/60">Ten minute holds across every booking. No timer anxiety while you find your card.</p></div>
+      </li>
+      <li class="flex gap-4">
+        <span class="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-paper/20 text-leaf-bright"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><p class="text-sm font-medium">The people you travel with</p><p class="mt-1 text-[13px] leading-relaxed text-paper/60">Save passengers once and skip the same six fields on every Eid trip.</p></div>
+      </li>
+      <li class="flex gap-4">
+        <span class="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-paper/20 text-leaf-bright"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><p class="text-sm font-medium">Refunds without a queue</p><p class="mt-1 text-[13px] leading-relaxed text-paper/60">Cancel from your dashboard and the money starts moving on its own.</p></div>
+      </li>
+    </ul>
+
+    <div class="relative mt-10 border-t border-paper/10 pt-6">
+      <p class="font-bangla text-sm font-medium leading-snug text-leaf-bright" lang="bn">শুভ যাত্রা</p>
+      <p class="mt-1 text-[11px] text-paper/60">Safe travels, wherever the line goes.</p>
+    </div>
+  </aside>
+  </div>
+</main>
+
+<footer class="border-t border-edge bg-paper">
+  <div class="page-wrap flex flex-col gap-2 py-5 text-[11px] text-muted sm:flex-row sm:items-center sm:justify-between">
+    <p>Independent concept, not affiliated with Bangladesh Railway.</p>
+    <div class="flex gap-4"><a href="help.html" class="hover:text-ink">Help</a><a href="help.html#terms" class="hover:text-ink">Terms</a><a href="tel:13107" class="font-mono hover:text-ink">13107</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

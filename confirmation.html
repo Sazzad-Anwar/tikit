@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your ticket, tikit</title>
+<meta name="description" content="Your intercity e-ticket is confirmed. Show the PNR and gate code at the station.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Bengali:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+</head>
+<body data-page="confirmation">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header on-forest">
+  <div class="page-wrap header-inner">
+    <a href="index.html" class="brand" aria-label="tikit home">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+      <span class="brand-text"><span class="brand-name">tikit</span><span class="brand-sub">আন্তঃনগর</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="trains.html">Book</a>
+      <a class="nav-link" href="dashboard.html" aria-current="page">My trips</a>
+      <a class="nav-link" href="help.html">Help</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button type="button" class="lang-btn" data-lang-toggle aria-label="Switch to English" title="Switch to English">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+        <span data-lang-label>English</span>
+      </button>
+      <a href="tel:13107" class="header-phone"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h3l1.5 4-2 1.5a12 12 0 0 0 7 7L16 14.5l4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4Z" stroke-linecap="round" stroke-linejoin="round"/></svg>13107</a>
+      <a href="login.html" class="header-signin">Sign in</a>
+      <a href="dashboard.html" class="btn-bright btn-sm hidden sm:inline-flex">My trips</a>
+      <button id="menuBtn" type="button" class="menu-btn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg class="menu-icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        <svg class="close-icon hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="trains.html">Book a seat</a>
+      <a href="dashboard.html" aria-current="page">My trips</a>
+      <a href="help.html">Help and refunds</a>
+    </nav>
+    <div class="menu-sep"></div>
+    <a href="login.html">Sign in</a>
+    <a href="register.html">Create an account</a>
+    <p class="mt-3 px-3 text-xs text-paper/65">Helpline <a class="ml-1 inline font-mono text-paper/80" href="tel:13107">13107</a></p>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero on-forest">
+    <div class="page-wrap page-hero__inner">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="eyebrow">Booking confirmed, <span id="confirmationMeta">Thu, 12 Nov, Snigdha, 1 seat</span></p>
+          <h1 class="mt-3 max-w-[14ch] font-display text-[clamp(2.2rem,4.8vw,3.6rem)] font-semibold leading-[1.01] tracking-[-0.038em]">You're booked.</h1>
+          <p class="mt-3 max-w-[48ch] text-[15px] leading-relaxed text-paper/70">A text with the PNR is on its way. Show the gate code below when the conductor comes around.</p>
+        </div>
+        <div class="flex flex-col items-start gap-3 sm:items-end">
+          <div class="stamp">Confirmed</div>
+          <p class="text-[11px] text-paper/70">PNR <span id="pnrHero" class="ml-1 font-mono tracking-[0.14em] text-paper">TJ48KP2</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="checkout-bar bg-paper">
+    <div class="page-wrap py-4">
+      <div class="stepper" role="list" aria-label="Checkout progress">
+        <div role="listitem" class="stepper-item is-done"><span class="stepper-dot">1</span><span class="stepper-label">Seats</span></div>
+        <span class="stepper-line" aria-hidden="true"></span>
+        <div role="listitem" class="stepper-item is-done"><span class="stepper-dot">2</span><span class="stepper-label">Passengers</span></div>
+        <span class="stepper-line" aria-hidden="true"></span>
+        <div role="listitem" class="stepper-item is-done"><span class="stepper-dot">3</span><span class="stepper-label">Payment</span></div>
+        <span class="stepper-line" aria-hidden="true"></span>
+        <div role="listitem" class="stepper-item is-current" aria-current="step"><span class="stepper-dot">4</span><span class="stepper-label">Ticket</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="page-wrap py-10 lg:py-14">
+    <div class="grid gap-6 lg:grid-cols-12">
+      <div class="lg:col-span-8">
+        <article class="print-ticket ticket overflow-hidden rounded-xl border border-edge bg-paper text-ink">
+          <div class="flex flex-wrap items-start justify-between gap-4 bg-forest px-6 py-5 text-paper">
+            <div class="flex items-center gap-3">
+              <svg class="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+              <div><p class="font-display text-lg font-bold leading-none tracking-[-0.04em]">tikit</p><p class="mt-1 font-mono text-[8px] tracking-[0.24em] text-paper/65">e-ticket</p></div>
+            </div>
+            <div class="text-right">
+              <p class="font-mono text-[9px] tracking-[0.18em] text-paper/65">PNR</p>
+              <p id="ticketPnr" class="mt-1 font-mono text-lg tracking-[0.16em]">TJ48KP2</p>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-8">
+            <div class="flex flex-wrap items-start justify-between gap-4 border-b border-edge pb-5">
+              <div>
+                <p id="ticketTrain" class="font-display text-xl font-semibold tracking-tight">Sonar Bangla Express, 786</p>
+                <p id="ticketRoute" class="mt-1 text-sm text-muted">Kamalapur → Chattogram</p>
+              </div>
+              <span class="rounded-full bg-leaf-soft px-3 py-1 font-mono text-[9px] tracking-[0.14em] text-leaf">Paid, confirmed</span>
+            </div>
+
+            <div class="mt-6 grid grid-cols-2 items-end gap-3 min-[400px]:grid-cols-[1fr_auto_1fr]">
+              <div>
+                <p class="font-mono text-[9px] tracking-[0.16em] text-muted">Depart</p>
+                <p id="ticketDep" class="mt-1 font-mono text-[30px] font-medium leading-none tracking-[-0.05em] min-[400px]:text-[38px]">07:00</p>
+                <p class="mt-1 text-xs text-muted">Kamalapur</p>
+              </div>
+              <div class="hidden flex-col items-center pb-6 text-muted min-[400px]:flex">
+                <span id="ticketDuration" class="font-mono text-[9px] tracking-[0.12em]">5h 35m</span>
+                <svg class="mt-1.5 h-6 w-16" viewBox="0 0 64 24" fill="none" aria-hidden="true"><path d="M1 12h62" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 3"/><circle cx="8" cy="12" r="2.5" fill="currentColor"/><circle cx="56" cy="12" r="2.5" fill="currentColor"/><rect x="29" y="8.5" width="6" height="7" rx="1.5" fill="currentColor"/></svg>
+              </div>
+              <div class="text-right">
+                <p class="font-mono text-[9px] tracking-[0.16em] text-muted">Arrive</p>
+                <p id="ticketArr" class="mt-1 font-mono text-[30px] font-medium leading-none tracking-[-0.05em] min-[400px]:text-[38px]">12:35</p>
+                <p class="mt-1 text-xs text-muted">Chattogram</p>
+              </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-edge bg-edge sm:grid-cols-4">
+              <div class="bg-paper p-3"><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Date</p><p id="ticketDate" class="mt-1 text-[12px] font-medium">Thu, 12 Nov</p></div>
+              <div class="bg-paper p-3"><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Class</p><p id="ticketClass" class="mt-1 text-[12px] font-medium">Snigdha</p></div>
+              <div class="bg-paper p-3"><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Coach</p><p id="ticketCoach" class="mt-1 font-mono text-[12px] font-medium">KA</p></div>
+              <div class="bg-paper p-3"><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Seats</p><p id="ticketSeats" class="mt-1 font-mono text-[12px] font-medium">B1</p></div>
+            </div>
+
+            <div class="mt-6 grid gap-5 border-t border-edge pt-5 sm:grid-cols-[1.3fr_1fr]">
+              <div>
+                <p class="font-mono text-[9px] tracking-[0.16em] text-muted">Passengers</p>
+                <div id="passengerList" class="mt-2"></div>
+              </div>
+              <div>
+                <p class="font-mono text-[9px] tracking-[0.16em] text-muted">Fare</p>
+                <dl class="mt-2 space-y-1.5 text-sm">
+                  <div class="flex justify-between gap-3"><dt class="text-muted">Fare</dt><dd id="ticketFare" class="font-mono">৳855 × 1</dd></div>
+                  <div class="flex justify-between gap-3"><dt class="text-muted">Paid with</dt><dd id="ticketMethod" class="text-xs">bKash</dd></div>
+                  <div class="flex justify-between gap-3 border-t border-edge pt-2"><dt class="font-medium">Total</dt><dd id="ticketTotal" class="font-mono text-lg font-medium">৳855</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="mx-6 ticket-perf"></div>
+            <span class="notch -left-[11px] top-0 -translate-y-1/2" aria-hidden="true"></span>
+            <span class="notch -right-[11px] top-0 -translate-y-1/2" aria-hidden="true"></span>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-5 px-6 py-5 sm:px-8">
+            <div class="flex items-center gap-4">
+              <div id="qrCode" class="qr-grid" role="img" aria-label="Gate scan code, demo"></div>
+              <div>
+                <p class="font-mono text-[9px] tracking-[0.16em] text-muted">Gate code</p>
+                <p class="mt-1 max-w-[18ch] text-[11px] leading-relaxed text-muted">Show this with a photo ID. The conductor scans it at the gate.</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="barcode ml-auto" aria-hidden="true"></div>
+              <p class="mt-2 font-mono text-[8px] tracking-[0.12em] text-muted">Demo ticket, not valid for travel</p>
+            </div>
+          </div>
+        </article>
+
+        <div class="mt-4 flex flex-wrap items-center gap-2 no-print">
+          <button type="button" data-print class="btn-outline btn-sm">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 9V4h12v5M6 18H4v-6h16v6h-2M7 14h10v6H7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Print ticket
+          </button>
+          <button type="button" id="shareTicket" class="btn-outline btn-sm">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.7 6.8-4.1M8.6 13.3l6.8 4.1" stroke-linecap="round"/></svg>
+            Share
+          </button>
+          <button type="button" data-toast="Ticket added to your phone wallet. Demo only." class="btn-outline btn-sm">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M3 10h18M7 14h3" stroke-linecap="round"/></svg>
+            Add to wallet
+          </button>
+          <a href="dashboard.html" class="btn-outline btn-sm">Go to my trips</a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 no-print">
+        <aside class="lg:sticky lg:top-24 space-y-4">
+          <div class="panel p-6">
+            <p class="eyebrow">Before you go</p>
+            <h2 class="mt-2 font-display text-xl font-semibold tracking-tight">Three small things.</h2>
+            <ol class="mt-5 space-y-4">
+              <li class="flex gap-3"><span class="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-leaf-soft font-mono text-[9px] text-leaf">01</span><p class="text-sm leading-relaxed text-muted">Arrive at Kamalapur 30 minutes before departure. Platforms are announced 20 minutes ahead.</p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-leaf-soft font-mono text-[9px] text-leaf">02</span><p class="text-sm leading-relaxed text-muted">Bring the photo ID used for the booking. The name on the ticket must match.</p></li>
+              <li class="flex gap-3"><span class="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-leaf-soft font-mono text-[9px] text-leaf">03</span><p class="text-sm leading-relaxed text-muted">Show the PNR or gate code when the conductor reaches your coach. No printout required.</p></li>
+            </ol>
+            <div class="mt-5 rounded-xl border border-edge bg-paper-2/40 p-3 text-[11px] leading-relaxed text-muted">
+              <p class="font-medium text-ink">Wheelchair or extra help?</p>
+              <p class="mt-1">Ask the station desk or call <a href="tel:13107" class="font-mono text-leaf">13107</a> at least four hours before departure.</p>
+            </div>
+          </div>
+
+          <div class="panel p-6">
+            <p class="eyebrow">Manage</p>
+            <div class="mt-4 grid gap-2">
+              <a href="dashboard.html" class="btn-primary btn-block">View in my trips</a>
+              <button type="button" data-cancel-trip data-fare="855" data-seats="1" class="btn-danger btn-block">Cancel this trip</button>
+            </div>
+            <p class="mt-3 text-[11px] leading-relaxed text-muted">Cancelling more than 24 hours before departure returns 90% of the fare. <a href="help.html#refunds" class="text-leaf underline underline-offset-2">Read the policy</a>.</p>
+            <div class="mt-4 flex items-center justify-between border-t border-edge pt-4 text-[11px] text-muted">
+              <span>Trip updates</span>
+              <span class="inline-flex items-center gap-1.5 text-leaf"><span class="dot dot-leaf"></span> SMS on</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer on-forest">
+  <div class="page-wrap py-14">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
+      <div>
+        <div class="flex items-center gap-3 text-paper">
+          <svg class="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+          <span class="font-display text-xl font-bold tracking-[-0.04em]">tikit</span>
+          <span class="font-bangla text-sm text-paper/60">টিকিট</span>
+        </div>
+        <p class="mt-4 max-w-[34ch] text-sm leading-relaxed">Intercity rail, booked without the queue. A design concept for Bangladesh Railway travellers.</p>
+        <p class="mt-4 max-w-[36ch] text-[11px] leading-relaxed text-paper/60">Independent concept. Not affiliated with Bangladesh Railway. Fares and timings are sample data.</p>
+      </div>
+      <nav aria-label="Journey"><p class="footer-heading">Journey</p><ul class="mt-4 space-y-2.5 text-sm"><li><a href="trains.html" class="footer-link">Search trains</a></li><li><a href="booking.html" class="footer-link">Seat map</a></li><li><a href="dashboard.html" class="footer-link">My trips</a></li><li><a href="help.html" class="footer-link">Refunds and help</a></li></ul></nav>
+      <div><p class="footer-heading">Stations</p><ul class="mt-4 space-y-2.5 text-sm"><li>Kamalapur, Dhaka</li><li>Chattogram</li><li>Sylhet</li><li>Rajshahi</li><li>Khulna</li><li>Cox's Bazar</li></ul></div>
+      <div><p class="footer-heading">Support</p><a href="tel:13107" class="mt-4 inline-flex items-baseline gap-2 text-paper transition hover:text-leaf-bright"><span class="font-mono text-2xl font-medium">13107</span><span class="text-[10px] tracking-[0.14em] text-paper/60">helpline</span></a><p class="mt-2 text-sm">Every day, 7am to 11pm</p><p class="mt-5 max-w-[28ch] text-[11px] leading-relaxed text-paper/60">Seat holds, refunds, and wheelchair berths. Ask for the station desk.</p></div>
+    </div>
+    <div class="mt-12 flex flex-col gap-3 border-t border-paper/10 pt-6 text-[11px] text-paper/60 sm:flex-row sm:items-center sm:justify-between"><p>Concept design, Dhaka, 2026</p><p class="font-bangla text-[11px] text-paper/60" lang="bn">শুভ যাত্রা</p></div>
+  </div>
+</footer>
+
+</body>
+</html>

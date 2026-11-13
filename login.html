@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in, tikit</title>
+<meta name="description" content="Sign in to keep your intercity tickets, passengers and refunds in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Bengali:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+</head>
+<body data-page="login" class="flex min-h-dvh flex-col">
+
+<header class="site-header on-forest">
+  <div class="page-wrap header-inner">
+    <a href="index.html" class="brand" aria-label="tikit home">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="9" fill="#F7F3E8"/><path d="M10.5 9.5h11a2 2 0 0 1 2 2v2.2a2.3 2.3 0 0 0 0 4.6v2.2a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-2.2a2.3 2.3 0 0 0 0-4.6v-2.2a2 2 0 0 1 2-2Z" fill="#1E3B2F"/><path d="M13 12v8" stroke="#F7F3E8" stroke-width="1.4" stroke-dasharray="2 2"/></svg>
+      <span class="brand-text"><span class="brand-name">tikit</span><span class="brand-sub">আন্তঃনগর</span></span>
+    </a>
+    <div class="flex items-center gap-3">
+      <button type="button" class="lang-btn" data-lang-toggle aria-label="Switch to English" title="Switch to English">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+        <span data-lang-label>English</span>
+      </button>
+      <a href="index.html" class="header-signin">Back to home</a>
+      <a href="register.html" class="btn-bright btn-sm hidden sm:inline-flex">Create account</a>
+    </div>
+  </div>
+</header>
+
+<main class="page-wrap flex-1 lg:py-10">
+  <div class="grid grid-cols-1 overflow-hidden bg-paper lg:grid-cols-2 lg:rounded-xl lg:border lg:border-edge">
+  <aside class="on-forest relative hidden overflow-hidden bg-forest p-10 text-paper lg:flex lg:flex-col lg:justify-between xl:p-12">
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image:linear-gradient(to right,rgba(238,240,229,.055) 1px,transparent 1px);background-size:84px 100%;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent)"></div>
+      <div class="absolute -right-24 -top-20 h-[420px] w-[420px] rounded-full" style="background:radial-gradient(circle,rgba(126,191,79,.25),transparent 68%)"></div>
+      <div class="absolute -bottom-20 -left-20 h-[360px] w-[360px] rounded-full" style="background:radial-gradient(circle,rgba(201,138,46,.16),transparent 68%)"></div>
+    </div>
+
+    <div class="relative">
+      <p class="eyebrow text-paper/60">One account, every journey</p>
+      <h2 class="mt-5 max-w-[13ch] font-display text-[clamp(2.4rem,3.6vw,3.6rem)] font-semibold leading-[1.02] tracking-[-0.038em]">The best part of the trip starts before the platform.</h2>
+      <p class="mt-5 max-w-[40ch] text-[15px] leading-relaxed text-paper/70">Keep every PNR in one place, save the people you travel with, and start a refund without a phone call.</p>
+    </div>
+
+    <div class="relative mt-10 max-w-[360px]">
+      <article class="rounded-xl bg-paper p-5 text-ink shadow-[0_30px_60px_-30px_rgba(0,0,0,.5)]">
+        <div class="flex items-start justify-between gap-4">
+          <div><p class="font-mono text-[8px] tracking-[0.2em] text-muted">upcoming</p><p class="mt-1 font-display text-base font-semibold leading-tight">Sonar Bangla Express</p></div>
+          <span class="rounded-full bg-leaf-soft px-2 py-0.5 font-mono text-[8px] tracking-[0.1em] text-leaf">786</span>
+        </div>
+        <div class="mt-5 flex items-end justify-between gap-3">
+          <div><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Kamalapur</p><p class="mt-1 font-mono text-2xl font-medium leading-none tracking-[-0.04em]">07:00</p></div>
+          <svg class="mb-1 h-4 w-14 text-muted" viewBox="0 0 56 16" fill="none" aria-hidden="true"><path d="M1 8h54" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3"/><circle cx="6" cy="8" r="2" fill="currentColor"/><circle cx="50" cy="8" r="2" fill="currentColor"/></svg>
+          <div class="text-right"><p class="font-mono text-[8px] tracking-[0.14em] text-muted">Chattogram</p><p class="mt-1 font-mono text-2xl font-medium leading-none tracking-[-0.04em]">12:35</p></div>
+        </div>
+        <div class="mt-4 flex items-center justify-between border-t border-edge pt-3 text-[10px] text-muted">
+          <span>Thu, 12 Nov, Snigdha</span><span class="font-mono">B4, KA</span>
+        </div>
+      </article>
+      <span class="absolute -bottom-3 -left-3 rotate-[-4deg] rounded-full border border-paper/20 bg-forest px-3 py-1.5 font-mono text-[8px] tracking-[0.14em] text-paper/70">Hold 10:00</span>
+    </div>
+
+    <dl class="relative mt-10 grid max-w-[420px] grid-cols-3 gap-5 border-t border-paper/10 pt-6">
+      <div><dt class="font-mono text-[8px] tracking-[0.16em] text-paper/60">Seat hold</dt><dd class="mt-1 text-sm text-paper/85">10 minutes</dd></div>
+      <div><dt class="font-mono text-[8px] tracking-[0.16em] text-paper/60">Refunds</dt><dd class="mt-1 text-sm text-paper/85">Automatic</dd></div>
+      <div><dt class="font-mono text-[8px] tracking-[0.16em] text-paper/60">Support</dt><dd class="mt-1 text-sm text-paper/85">13107</dd></div>
+    </dl>
+  </aside>
+
+  <section class="flex items-center justify-center px-0 py-12 sm:py-16 lg:px-8">
+    <div class="form-wrap">
+      <h1 class="font-display text-[clamp(2.1rem,4vw,2.9rem)] font-semibold leading-[1.02] tracking-[-0.035em]">Sign in to your journeys.</h1>
+      <p class="mt-3 text-sm leading-relaxed text-muted">Your tickets, passenger details and refunds, in one quiet place.</p>
+
+      <div class="tab-list mt-8" role="tablist" aria-label="Sign in method">
+        <button type="button" class="tab" id="tabPassword" role="tab" aria-selected="true" aria-controls="panelPassword" data-auth-tab="password">Mobile or email</button>
+        <button type="button" class="tab" id="tabOtp" role="tab" aria-selected="false" aria-controls="panelOtp" tabindex="-1" data-auth-tab="otp">One-time code</button>
+      </div>
+
+      <div id="panelPassword" class="pt-6" role="tabpanel" aria-labelledby="tabPassword" data-auth-panel="password">
+        <form id="loginForm" novalidate>
+          <div>
+            <label for="loginId" class="field-label">Mobile number or email</label>
+            <input id="loginId" name="loginId" type="text" autocomplete="username" class="input mt-2" placeholder="01XXX XXXXXX">
+            <p class="error-text" data-error-for="loginId" hidden>Enter the mobile number or email on your account.</p>
+          </div>
+          <div class="mt-4">
+            <div class="flex items-baseline justify-between gap-3">
+              <label for="loginPassword" class="field-label">Password</label>
+              <button type="button" id="forgotPassword" class="text-[11px] font-medium text-leaf hover:underline">Forgot password?</button>
+            </div>
+            <div class="relative mt-2">
+              <input id="loginPassword" name="loginPassword" type="password" autocomplete="current-password" class="input pr-20" placeholder="Your password">
+              <button type="button" id="togglePassword" class="absolute right-1 top-1/2 -translate-y-1/2 rounded-full px-3 py-2 text-[11px] font-medium text-muted hover:text-ink" aria-label="Show password" aria-pressed="false">Show</button>
+            </div>
+            <p class="error-text" data-error-for="loginPassword" hidden>Enter your password.</p>
+          </div>
+
+          <label class="switch mt-2">
+            <input type="checkbox" checked>
+            <span class="track" aria-hidden="true"></span>
+            <span>Keep me signed in on this device</span>
+          </label>
+
+          <button id="loginSubmit" type="submit" class="btn-primary mt-5 w-full">Sign in</button>
+          <p class="mt-3 text-center text-[11px] leading-relaxed text-muted">Design prototype. Use any mobile number and a password of four or more characters.</p>
+        </form>
+
+        <div class="mt-7 border-t border-edge pt-5 text-center text-sm text-muted">
+          New to tikit? <a href="register.html" class="font-semibold text-leaf hover:underline">Create an account</a>
+        </div>
+      </div>
+
+      <div id="panelOtp" class="pt-6" role="tabpanel" aria-labelledby="tabOtp" data-auth-panel="otp" hidden>
+        <form id="otpForm" novalidate>
+          <div>
+            <label for="otpMobile" class="field-label">Mobile number</label>
+            <div class="mt-2 flex gap-2">
+              <input id="otpMobile" name="otpMobile" type="tel" inputmode="numeric" autocomplete="tel" class="input" placeholder="01XXX XXXXXX" value="01712345678">
+              <button type="button" id="sendOtp" class="btn-outline btn-sm shrink-0">Send code</button>
+            </div>
+            <p class="mt-2 help-text">We'll text a six digit code to this number.</p>
+          </div>
+
+          <div id="otpStep" class="mt-5" hidden>
+            <p class="field-label">Six digit code</p>
+            <div class="mt-2 grid max-w-[360px] grid-cols-6 gap-2">
+              <input class="otp-input" id="otp1" inputmode="numeric" maxlength="1" aria-label="Code digit 1" autocomplete="one-time-code">
+              <input class="otp-input" id="otp2" inputmode="numeric" maxlength="1" aria-label="Code digit 2">
+              <input class="otp-input" id="otp3" inputmode="numeric" maxlength="1" aria-label="Code digit 3">
+              <input class="otp-input" id="otp4" inputmode="numeric" maxlength="1" aria-label="Code digit 4">
+              <input class="otp-input" id="otp5" inputmode="numeric" maxlength="1" aria-label="Code digit 5">
+              <input class="otp-input" id="otp6" inputmode="numeric" maxlength="1" aria-label="Code digit 6">
+            </div>
+            <p id="otpHint" class="mt-2 help-text" hidden>Demo code: any six digits.</p>
+            <button type="submit" class="btn-primary mt-5 w-full">Verify and sign in</button>
+          </div>
+        </form>
+
+        <div class="mt-7 border-t border-edge pt-5 text-center text-sm text-muted">
+          New to tikit? <a href="register.html" class="font-semibold text-leaf hover:underline">Create an account</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+</main>
+
+<footer class="border-t border-edge bg-paper">
+  <div class="page-wrap flex flex-col gap-2 py-5 text-[11px] text-muted sm:flex-row sm:items-center sm:justify-between">
+    <p>Independent concept, not affiliated with Bangladesh Railway.</p>
+    <div class="flex gap-4"><a href="help.html" class="hover:text-ink">Help</a><a href="help.html#refunds" class="hover:text-ink">Refunds</a><a href="tel:13107" class="font-mono hover:text-ink">13107</a></div>
+  </div>
+</footer>
+
+<dialog id="resetDialog" class="dialog" aria-labelledby="resetTitle">
+  <div class="dialog-card">
+    <button type="button" class="dialog-x" data-reset-close aria-label="Close password reset">
+      <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke-linecap="round"/></svg>
+    </button>
+    <p class="eyebrow">Password reset</p>
+    <h2 id="resetTitle" class="mt-2 font-display text-2xl font-semibold tracking-tight">Send a fresh link.</h2>
+    <p class="mt-2 text-sm leading-relaxed text-muted">Enter the mobile number or email on your account. A reset link will arrive with a ten minute life.</p>
+    <form id="resetForm" class="mt-5" novalidate>
+      <label for="resetId" class="field-label">Mobile number or email</label>
+      <input id="resetId" class="input mt-2" placeholder="01XXX XXXXXX">
+      <button type="submit" class="btn-primary mt-4 w-full">Send reset link</button>
+      <button type="button" class="btn-outline mt-2 w-full" data-reset-close>Cancel</button>
+    </form>
+    <p class="mt-3 text-center text-[11px] text-muted">Demo only. No message is sent.</p>
+  </div>
+</dialog>
+
+</body>
+</html>
